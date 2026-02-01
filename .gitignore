@@ -8,3 +8,6 @@ venv/
 tokens_iol.json
 .DS_Store
 test_manual.py
+.coverage
+.pytest_cache/
+htmlcov/
