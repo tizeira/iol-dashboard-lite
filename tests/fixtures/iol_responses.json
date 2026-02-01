@@ -1,0 +1,127 @@
+{
+  "login_success": {
+    "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IlRlc3QgVXNlciIsImlhdCI6MTUxNjIzOTAyMn0.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c",
+    "refresh_token": "abc123def456ghi789",
+    "expires_in": 900,
+    ".expires": "2024-01-15T10:30:00Z",
+    "token_type": "bearer"
+  },
+  "login_invalid": {
+    "error": "invalid_grant",
+    "error_description": "Invalid username or password"
+  },
+  "token_refresh_success": {
+    "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IlJlZnJlc2hlZCBVc2VyIiwiaWF0IjoxNTE2MjM5MDIyfQ.newtoken123",
+    "refresh_token": "newrefresh456xyz",
+    "expires_in": 900,
+    ".expires": "2024-01-15T10:45:00Z",
+    "token_type": "bearer"
+  },
+  "portfolio_example": {
+    "activos": [
+      {
+        "titulo": {
+          "simbolo": "GGAL",
+          "descripcion": "Grupo Financiero Galicia S.A.",
+          "mercado": "BCBA"
+        },
+        "cantidad": 100,
+        "ppc": 145.50,
+        "valorActual": 15000.50,
+        "variacionDiaria": 2.5,
+        "gananciaPorcentaje": 3.09,
+        "gananciaDinero": 450.00
+      },
+      {
+        "titulo": {
+          "simbolo": "YPFD",
+          "descripcion": "YPF S.A.",
+          "mercado": "BCBA"
+        },
+        "cantidad": 50,
+        "ppc": 8500.00,
+        "valorActual": 450000.00,
+        "variacionDiaria": -1.2,
+        "gananciaPorcentaje": 5.88,
+        "gananciaDinero": 25000.00
+      }
+    ],
+    "totalEnPesos": 465000.50,
+    "totalEnDolares": 465.00
+  },
+  "portfolio_empty": {
+    "activos": [],
+    "totalEnPesos": 0,
+    "totalEnDolares": 0
+  },
+  "quotes_example": [
+    {
+      "simbolo": "GGAL",
+      "puntas": {
+        "precioCompra": 149.50,
+        "precioVenta": 150.50,
+        "cantidadCompra": 1000,
+        "cantidadVenta": 500
+      },
+      "ultimoPrecio": 150.00,
+      "variacion": 2.5,
+      "apertura": 146.50,
+      "maximo": 151.00,
+      "minimo": 145.00,
+      "fechaHora": "2024-01-15T15:30:00"
+    },
+    {
+      "simbolo": "YPFD",
+      "puntas": {
+        "precioCompra": 8990.00,
+        "precioVenta": 9010.00,
+        "cantidadCompra": 50,
+        "cantidadVenta": 30
+      },
+      "ultimoPrecio": 9000.00,
+      "variacion": -1.2,
+      "apertura": 9100.00,
+      "maximo": 9150.00,
+      "minimo": 8950.00,
+      "fechaHora": "2024-01-15T15:30:00"
+    }
+  ],
+  "quotes_market_closed": [
+    {
+      "simbolo": "GGAL",
+      "puntas": null,
+      "ultimoPrecio": 150.00,
+      "variacion": null,
+      "apertura": null,
+      "maximo": null,
+      "minimo": null,
+      "fechaHora": null
+    }
+  ],
+  "account_status": {
+    "cuentas": [
+      {
+        "tipo": "PESOS",
+        "saldo": 50000.00,
+        "comprometido": 10000.00,
+        "disponible": 40000.00
+      },
+      {
+        "tipo": "DOLARES",
+        "saldo": 1000.00,
+        "comprometido": 0.00,
+        "disponible": 1000.00
+      }
+    ]
+  },
+  "error_in_200_body": {
+    "error": "token_expired",
+    "code": 401,
+    "message": "The access token is expired"
+  },
+  "generic_api_error": {
+    "error": "server_error",
+    "code": 500,
+    "message": "Internal server error"
+  }
+}

@@ -1,0 +1,63 @@
+# IOL Dashboard Lite - Development Rules
+
+## Project Context
+- Streamlit dashboard for InvertirOnline.com (Argentina)
+- Read-only MVP: portfolio + quotes only
+- Target: 100 users in 2 weeks
+
+## Code Style
+- Use type hints (Python 3.10+)
+- Docstrings: Google style
+- Max line length: 88 (Black)
+- Imports: stdlib → third-party → local
+
+## Architecture Principles
+1. **Separation of Concerns:**
+   - `auth.py`: Authentication only
+   - `api_client.py`: HTTP layer only
+   - `portfolio.py`: Business logic only
+   - `ui.py`: Streamlit components only
+
+2. **Error Handling:**
+   - Always wrap API calls in try/except
+   - User-facing errors via st.error()
+   - Log all exceptions to console
+
+3. **Performance:**
+   - Cache API responses (st.cache_data with TTL)
+   - Avoid re-renders: use st.session_state
+   - Lazy load: only fetch on user action
+
+## IOL API Constraints
+- Base URL: https://api.invertironline.com
+- Auth: Bearer token (15min TTL)
+- Rate limit: ~120 req/min (undocumented)
+- Endpoints prioritarios:
+  - POST /api/v2/token (auth)
+  - GET /api/v2/portafolio/argentina
+  - GET /api/v2/Cotizaciones/acciones/argentina/Todos
+
+## Testing Strategy
+- Unit tests: auth + api_client
+- Integration: mock IOL API responses
+- E2E: manual only (requires real credentials)
+
+## Git Workflow
+- main: production-ready only
+- feature/*: new features
+- fix/*: bug fixes
+- Commits: conventional (feat:, fix:, docs:)
+
+## When Asked to Implement:
+1. Read related files first
+2. Check if similar logic exists
+3. Propose solution with trade-offs
+4. Write tests alongside code
+5. Update docs if public API changes
+
+## Red Flags to Challenge:
+- Adding dependencies without justification
+- Complex abstractions before validation
+- Fetching data not shown in UI
+- Caching without TTL
+- Any trading/write operations (out of scope)

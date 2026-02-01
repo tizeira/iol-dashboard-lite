@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+.env
+.venv/
+venv/
+*.log
+.streamlit/secrets.toml
+tokens_iol.json
+.DS_Store
+test_manual.py
